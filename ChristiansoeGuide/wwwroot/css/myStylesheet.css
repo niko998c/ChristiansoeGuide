@@ -1,0 +1,24 @@
+.ferry-times-div {
+    float: right;
+    width: fit-content;
+    white-space: nowrap;
+}
+
+table {
+    font-size: 20px;
+}
+
+.welcome-div {
+    float: left;
+    width: 80%;
+}
+
+.welcome-map {
+    margin-left: 10%;
+    max-width: 70%;
+    height: auto;
+}
+
+tr:nth-child(even) {
+    background: lightgrey;
+}
