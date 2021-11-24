@@ -1,10 +1,34 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Startside";
 }
 
 <body>
-    <div class="text-center">
-        <h1 class="display-4">Welcommen til Christiansø Turist Guide</h1>
-        <img src="image/map.png" alt="Kort ikke findet">
-    </div>
+
+<div class="ferry-times-div">
+    <table>
+        <h2>Færge tider</h2>
+        <tbody>
+        @{
+            foreach (var Data in Model)
+            {
+                <tr>
+                    <td>@Data.ToString() </td>
+                </tr>
+            }
+        }
+        </tbody>
+    </table>
+</div>
+
+<div class="welcome-div">
+    <h2>Velkommen til Christiansø Turist Guide</h2>
+    <p>
+        Christiansø er del af øgruppen Ertholmene.
+        Øgruppen er ejet af den danske stat og hører under Forsvarsministeriet.
+        Den ligger ca. 20 km nordøst for Bornholm og består af de to beboede øer Christiansø og Frederiksø,
+        fuglereservatet Græsholm og et antal større og mindre klippeskær.
+        Alt er totalfredet, både fæstning, natur og dyreliv. Der bor i dag ca. 90 mennesker på øerne.
+    </p>
+    <img src="image/map.png" class="welcome-map" alt="Kort ikke findet">
+</div>
 </body>

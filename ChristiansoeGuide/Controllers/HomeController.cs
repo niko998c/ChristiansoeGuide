@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using ChristiansoeGuide.Models;
+using System.Data.SqlClient;
+using Microsoft.IdentityModel.Protocols;
+using MySql.Data.MySqlClient;
 
 namespace ChristiansoeGuide.Controllers
 {
@@ -13,14 +16,47 @@ namespace ChristiansoeGuide.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
+        //database connection stuff
+        static String connStr = "server=localhost;user=root;database=ChristiansoeDatabase;port=3306;password=Mysqlroot;";
+        MySqlConnection connection = new MySqlConnection(connStr);
+        private List<string> ferryTimesList = new List<string>();
+
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
         }
-
+        
         public IActionResult Index()
         {
-            return View();
+            FetchData();
+            return View(ferryTimesList);
+        }
+        
+        private void FetchData()
+        {
+            if (ferryTimesList.Count > 0)
+            {
+                ferryTimesList.Clear();
+            }
+            try
+            {
+                connection.Open();
+                
+                string sql = "SELECT * FROM FerryTimes";
+                MySqlCommand command = new MySqlCommand(sql, connection);
+                MySqlDataReader reader = command.ExecuteReader();
+                
+                while (reader.Read())
+                {
+                    ferryTimesList.Add(reader["FerryDateTime"].ToString());
+                }
+                connection.Close();
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("DB-ERROR" + e);
+            }
         }
 
         public IActionResult Privacy()
@@ -38,5 +74,6 @@ namespace ChristiansoeGuide.Controllers
         {
             return View(new ErrorViewModel {RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier});
         }
+        
     }
 }

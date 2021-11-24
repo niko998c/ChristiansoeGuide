@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Niko\\SynologyDrive\\Labtop\\semester4\\Rider\\ChristiansoeGuide\\ChristiansoeGuide\\ChristiansoeGuide.csproj": {}
+    "/Users/adamkanstruphviid/OneDrive/KEA/C#/ChristiansoeGuide/ChristiansoeGuide/ChristiansoeGuide.csproj": {}
   },
   "projects": {
-    "C:\\Niko\\SynologyDrive\\Labtop\\semester4\\Rider\\ChristiansoeGuide\\ChristiansoeGuide\\ChristiansoeGuide.csproj": {
+    "/Users/adamkanstruphviid/OneDrive/KEA/C#/ChristiansoeGuide/ChristiansoeGuide/ChristiansoeGuide.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Niko\\SynologyDrive\\Labtop\\semester4\\Rider\\ChristiansoeGuide\\ChristiansoeGuide\\ChristiansoeGuide.csproj",
+        "projectUniqueName": "/Users/adamkanstruphviid/OneDrive/KEA/C#/ChristiansoeGuide/ChristiansoeGuide/ChristiansoeGuide.csproj",
         "projectName": "ChristiansoeGuide",
-        "projectPath": "C:\\Niko\\SynologyDrive\\Labtop\\semester4\\Rider\\ChristiansoeGuide\\ChristiansoeGuide\\ChristiansoeGuide.csproj",
-        "packagesPath": "C:\\Users\\Nikolaj\\.nuget\\packages\\",
-        "outputPath": "C:\\Niko\\SynologyDrive\\Labtop\\semester4\\Rider\\ChristiansoeGuide\\ChristiansoeGuide\\obj\\",
+        "projectPath": "/Users/adamkanstruphviid/OneDrive/KEA/C#/ChristiansoeGuide/ChristiansoeGuide/ChristiansoeGuide.csproj",
+        "packagesPath": "/Users/adamkanstruphviid/.nuget/packages/",
+        "outputPath": "/Users/adamkanstruphviid/OneDrive/KEA/C#/ChristiansoeGuide/ChristiansoeGuide/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Nikolaj\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/Users/adamkanstruphviid/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -37,6 +37,20 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
+          "dependencies": {
+            "Microsoft.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.0.0-preview3.21293.2, )"
+            },
+            "MySqlClient": {
+              "target": "Package",
+              "version": "[5.4.2, )"
+            },
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.3, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -55,7 +69,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/Users/adamkanstruphviid/.dotnet/sdk/5.0.402/RuntimeIdentifierGraph.json"
         }
       }
     }
