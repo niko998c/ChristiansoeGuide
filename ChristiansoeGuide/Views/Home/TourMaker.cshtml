@@ -6,7 +6,7 @@
 <script>
     $(document).ready(function(){
         $(".andeDam").on("click", function(){
-            $.ajax({url: '@Url.Action("xy")', type: 'GET', data: {str: "andedam"},
+            $.ajax({url: '@Url.Action("xy")', type: 'GET', data: {tmpName: "andedam", tmpX: 10, tmpY: 10},
             });
         });
         $(".FroeDam").on("click", function(){

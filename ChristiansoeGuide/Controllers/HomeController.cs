@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
@@ -17,6 +18,8 @@ namespace ChristiansoeGuide.Controllers
         MySqlConnection connection = new MySqlConnection(connStr);
         private List<string> ferryTimesList = new List<string>();
 
+        private ArrayList test = new ArrayList();
+        
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
@@ -57,9 +60,18 @@ namespace ChristiansoeGuide.Controllers
         }
         
         [HttpGet]
-        public void xy(string str)
-        {    
-            Console.WriteLine(str);
+        public void xy(string tmpName, int tmpX, int tmpY)
+        {
+            connection.Open();
+            string sql = "Insert into pinsTable (name, x, y) VALUES (@name, @x, @y)";
+            MySqlCommand cmd = new MySqlCommand(sql, connection);
+            
+            cmd.Parameters.AddWithValue("@name",tmpName);
+            cmd.Parameters.AddWithValue("@x",tmpX);
+            cmd.Parameters.AddWithValue("@y",tmpY);
+            Console.WriteLine("tmpname: " + tmpName);
+            cmd.ExecuteNonQuery();
+            cmd.Dispose();
         }
 
         public IActionResult Privacy()
@@ -67,10 +79,9 @@ namespace ChristiansoeGuide.Controllers
             return View();
         }
         
-        public IActionResult TourMaker(string printString)
+        public IActionResult TourMaker()
         {
-            Console.WriteLine(printString);
-            return View(printString);
+            return View();
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
