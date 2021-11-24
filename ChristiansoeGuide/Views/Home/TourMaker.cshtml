@@ -2,10 +2,12 @@
     ViewData["Title"] = "Tur laveren";
 }
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 <script>
     $(document).ready(function(){
         $(".andeDam").on("click", function(){
-            alert('test');
+            $.ajax({url: '@Url.Action("xy")', type: 'GET', data: {str: "andedam"},
+            });
         });
         $(".FroeDam").on("click", function(){
             alert('test');

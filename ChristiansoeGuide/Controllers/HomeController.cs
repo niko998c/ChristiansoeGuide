@@ -1,13 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using ChristiansoeGuide.Models;
-using System.Data.SqlClient;
-using Microsoft.IdentityModel.Protocols;
 using MySql.Data.MySqlClient;
 
 namespace ChristiansoeGuide.Controllers
@@ -31,13 +27,14 @@ namespace ChristiansoeGuide.Controllers
             FetchData();
             return View(ferryTimesList);
         }
-        
+
         private void FetchData()
         {
             if (ferryTimesList.Count > 0)
             {
                 ferryTimesList.Clear();
             }
+            
             try
             {
                 connection.Open();
@@ -58,15 +55,22 @@ namespace ChristiansoeGuide.Controllers
                 Console.WriteLine("DB-ERROR" + e);
             }
         }
+        
+        [HttpGet]
+        public void xy(string str)
+        {    
+            Console.WriteLine(str);
+        }
 
         public IActionResult Privacy()
         {
             return View();
         }
         
-        public IActionResult TourMaker()
+        public IActionResult TourMaker(string printString)
         {
-            return View();
+            Console.WriteLine(printString);
+            return View(printString);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
@@ -75,5 +79,9 @@ namespace ChristiansoeGuide.Controllers
             return View(new ErrorViewModel {RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier});
         }
         
+        public void Test(string printString)
+        {
+            Console.WriteLine(printString);
+        }
     }
 }
