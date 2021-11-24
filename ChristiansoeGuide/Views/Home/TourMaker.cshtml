@@ -6,7 +6,7 @@
 <script>
     $(document).ready(function(){
         $(".andeDam").on("click", function(){
-            $.ajax({url: '@Url.Action("xy")', type: 'GET', data: {tmpName: "andedam", tmpX: 10, tmpY: 10},
+            $.ajax({url: '@Url.Action("AddTourToDatabase")', type: 'GET', data: {tmpName: "andedam", tmpX: 10, tmpY: 10},
             });
         });
         $(".FroeDam").on("click", function(){
@@ -20,11 +20,22 @@
 <body>
     <div class="text-center">
         <h1 class="display-4">Lav din egen tur her</h1>
-        <img src="../image/map.png" alt="Kort ikke findet" usemap="#tourmap">
+        <img src="../image/mapWithPins.png" alt="Kort ikke findet" usemap="#tourmap">
         <map name="tourmap">
-            <area class="andeDam" shape="circle" coords="10,10,100" href="">
-            <area class="FroeDam" shape="circle" coords="290,172,50" href="">
-            <area class="DamDam" shape="circle" coords="337,300,50" href="">
+            <area class="færgen" shape="circle" coords="440,490,30" href="">
+            <area class="" shape="circle" coords="440,490,30" href="">
+            
         </map>
+        
+        <tbody>
+                @{
+                    foreach (var Data in Model)
+                    {
+                        <tr>
+                            <td>@Data.ToString() </td>
+                        </tr>
+                    }
+                }
+        </tbody>
     </div>
 </body>

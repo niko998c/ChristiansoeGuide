@@ -17,8 +17,7 @@ namespace ChristiansoeGuide.Controllers
         static String connStr = "server=localhost;user=root;database=ChristiansoeDatabase;port=3306;password=Mysqlroot;";
         MySqlConnection connection = new MySqlConnection(connStr);
         private List<string> ferryTimesList = new List<string>();
-
-        private ArrayList test = new ArrayList();
+        private List<string> tourList = new List<string>();
         
         public HomeController(ILogger<HomeController> logger)
         {
@@ -27,11 +26,11 @@ namespace ChristiansoeGuide.Controllers
         
         public IActionResult Index()
         {
-            FetchData();
+            FetchFerryTimes();
             return View(ferryTimesList);
         }
 
-        private void FetchData()
+        private void FetchFerryTimes()
         {
             if (ferryTimesList.Count > 0)
             {
@@ -60,10 +59,10 @@ namespace ChristiansoeGuide.Controllers
         }
         
         [HttpGet]
-        public void xy(string tmpName, int tmpX, int tmpY)
+        public void AddTourToDatabase(string tmpName, int tmpX, int tmpY)
         {
             connection.Open();
-            string sql = "Insert into pinsTable (name, x, y) VALUES (@name, @x, @y)";
+            string sql = "Insert into Tour (name, x, y) VALUES (@name, @x, @y)";
             MySqlCommand cmd = new MySqlCommand(sql, connection);
             
             cmd.Parameters.AddWithValue("@name",tmpName);
@@ -73,6 +72,34 @@ namespace ChristiansoeGuide.Controllers
             cmd.ExecuteNonQuery();
             cmd.Dispose();
         }
+        
+        private void FetchTour()
+        {
+            if (ferryTimesList.Count > 0)
+            {
+                ferryTimesList.Clear();
+            }
+            
+            try
+            {
+                connection.Open();
+                
+                string sql = "SELECT * FROM Tour";
+                MySqlCommand command = new MySqlCommand(sql, connection);
+                MySqlDataReader reader = command.ExecuteReader();
+                
+                while (reader.Read())
+                {
+                    tourList.Add(reader["name"].ToString());
+                }
+                connection.Close();
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("DB-ERROR" + e);
+            }
+        }
 
         public IActionResult Privacy()
         {
@@ -81,7 +108,8 @@ namespace ChristiansoeGuide.Controllers
         
         public IActionResult TourMaker()
         {
-            return View();
+            FetchTour();
+            return View(tourList);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
