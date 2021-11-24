@@ -5,7 +5,8 @@
 <script>
     $(document).ready(function(){
         $(".andeDam").on("click", function(){
-            alert('test');
+            $.ajax({url: '@Url.Action("xy")', type: 'GET', data: {str: "andedam"},
+            });
         });
         $(".FroeDam").on("click", function(){
             alert('test');
@@ -20,9 +21,9 @@
         <h1 class="display-4">Lav din egen tur her</h1>
         <img src="../image/map.png" alt="Kort ikke findet" usemap="#tourmap">
         <map name="tourmap">
-            <area class="andeDam" shape="circle" coords="10,10,100" href="">
-            <area class="FroeDam" shape="circle" coords="290,172,50" href="">
-            <area class="DamDam" shape="circle" coords="337,300,50" href="">
+            <area class="andeDam" shape="circle" coords="10,10,100" href="#">
+            <area class="FroeDam" shape="circle" coords="290,172,50" href="#">
+            <area class="DamDam" shape="circle" coords="337,300,50" href="#">
         </map>
     </div>
 </body>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
@@ -32,6 +33,14 @@ namespace ChristiansoeGuide.Controllers
         {
             return View();
         }
+
+        [HttpGet]
+        public void xy(string str)
+        {
+            Console.WriteLine(str);
+            
+        }
+        
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
