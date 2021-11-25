@@ -23,3 +23,13 @@ tr:nth-child(even) {
     background: lightgrey;
 }
 
+.tour-list {
+    float: right;
+    white-space: nowrap;
+    width: 20%;
+}
+
+.tour-map-div {
+    width: 70%;
+    float: left;
+}

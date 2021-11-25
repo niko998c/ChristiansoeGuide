@@ -48,32 +48,32 @@
     });
 </script>
 <body>
-    <div class="tour-map-div">
-        <h1 class="display-4">Lav din egen tur her</h1>
-        <img src="../image/mapWithPins.png" class="Tour-Map" alt="Kort ikke findet" usemap="#tourmap" style="width: 70%">
-        <map name="tourmap">
-            <area class="Færgen" shape="circle" coords="440, 490, 30" href="">
-            <area class="LilleTårn" shape="circle" coords="230, 255, 30" href="">
-            <area class="Fængsel" shape="circle" coords="312, 615, 30" href="">
-            <area class="HesteHytten" shape="circle" coords="582, 224, 30" href="">
-            <area class="StoreTårn" shape="circle" coords="528, 490, 30" href="">
-            <area class="GlasShop" shape="circle" coords="501, 654, 30" href="">
-            <area class="HertugindensBastion" shape="circle" coords="792, 300, 30" href="">
-            <area class="StoreBrønd" shape="circle" coords="792, 714, 30" href="">
-            <area class="VerdensEnde" shape="circle" coords="930, 118, 30" href="">
-            <area class="ØsteligePunkt" shape="circle" coords="1113, 572, 30" href="">
-            <area class="KongensBastion" shape="circle" coords="680, 962, 30" href="">
-        </map>
-        
+    <div class="tour-list">
         <tbody>
-                @{
-                    foreach (var Data in Model)
-                    {
-                        <tr>
-                            <td>@Data.ToString() </td>
-                        </tr>
-                    }
+            @{
+                foreach (var Data in Model)
+                {
+                    <tr>
+                        <td>@Data.ToString() </td>
+                    </tr>
                 }
+            }
         </tbody>
+    </div>
+    <div class="tour-map-div">
+    <img class="tourmap" src="../image/mapWithPins.png" alt="Kort ikke findet" usemap="#tourmap" style="width: 70%">
+    <map name="tourmap">
+        <area class="Færgen" shape="circle" coords="308, 343, 30" href="">
+        <area class="LilleTårn" shape="circle" coords="161, 178, 30" href="">
+        <area class="Fængsel" shape="circle" coords="218, 430, 30" href="">
+        <area class="HesteHytten" shape="circle" coords="407, 156, 30" href="">
+        <area class="StoreTårn" shape="circle" coords="369, 343, 30" href="">
+        <area class="GlasShop" shape="circle" coords="350, 457, 30" href="">
+        <area class="HertugindensBastion" shape="circle" coords="554, 210, 30" href="">
+        <area class="StoreBrønd" shape="circle" coords="554, 499, 30" href="">
+        <area class="VerdensEnde" shape="circle" coords="651, 82, 30" href="">
+        <area class="ØsteligePunkt" shape="circle" coords="770, 400, 30" href="">
+        <area class="KongensBastion" shape="circle" coords="476, 673, 30" href="">
+    </map>
     </div>
 </body>
