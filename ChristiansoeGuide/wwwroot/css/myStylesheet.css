@@ -1,19 +1,15 @@
-.ferry-times-div {
+.højre-div {
     float: right;
     width: fit-content;
     white-space: nowrap;
 }
 
-table {
-    font-size: 20px;
-}
-
-.welcome-div {
+.venstre-div {
     float: left;
     width: 80%;
 }
 
-.welcome-map {
+.map {
     margin-left: 10%;
     max-width: 70%;
     height: auto;
@@ -23,13 +19,6 @@ tr:nth-child(even) {
     background: lightgrey;
 }
 
-.tour-list {
-    float: right;
-    white-space: nowrap;
-    width: 20%;
-}
-
-.tour-map-div {
-    width: 70%;
-    float: left;
+table {
+    font-size: 20px;
 }

@@ -48,7 +48,9 @@
     });
 </script>
 <body>
-    <div class="tour-list">
+<div class="højre-div">
+    <table>
+    <h2>Færge tider</h2>
         <tbody>
             @{
                 foreach (var Data in Model)
@@ -58,22 +60,25 @@
                     </tr>
                 }
             }
-        </tbody>
-    </div>
-    <div class="tour-map-div">
-    <img class="tourmap" src="../image/mapWithPins.png" alt="Kort ikke findet" usemap="#tourmap" style="width: 70%">
-    <map name="tourmap">
-        <area class="Færgen" shape="circle" coords="308, 343, 30" href="">
-        <area class="LilleTårn" shape="circle" coords="161, 178, 30" href="">
-        <area class="Fængsel" shape="circle" coords="218, 430, 30" href="">
-        <area class="HesteHytten" shape="circle" coords="407, 156, 30" href="">
-        <area class="StoreTårn" shape="circle" coords="369, 343, 30" href="">
-        <area class="GlasShop" shape="circle" coords="350, 457, 30" href="">
-        <area class="HertugindensBastion" shape="circle" coords="554, 210, 30" href="">
-        <area class="StoreBrønd" shape="circle" coords="554, 499, 30" href="">
-        <area class="VerdensEnde" shape="circle" coords="651, 82, 30" href="">
-        <area class="ØsteligePunkt" shape="circle" coords="770, 400, 30" href="">
-        <area class="KongensBastion" shape="circle" coords="476, 673, 30" href="">
-    </map>
+            </tbody>
+    </table>
+    
+</div>
+    <div class="venstre-div">
+    <h2>Velkommen til Christiansø Turist Guide</h2>
+        <img class="map" src="../image/mapWithPins.png" alt="Kort ikke findet" usemap="#tourmap">
+        <map name="tourmap">
+            <area class="Færgen" shape="circle" coords="308, 343, 30" href="">
+            <area class="LilleTårn" shape="circle" coords="161, 178, 30" href="">
+            <area class="Fængsel" shape="circle" coords="218, 430, 30" href="">
+            <area class="HesteHytten" shape="circle" coords="407, 156, 30" href="">
+            <area class="StoreTårn" shape="circle" coords="369, 343, 30" href="">
+            <area class="GlasShop" shape="circle" coords="350, 457, 30" href="">
+            <area class="HertugindensBastion" shape="circle" coords="554, 210, 30" href="">
+            <area class="StoreBrønd" shape="circle" coords="554, 499, 30" href="">
+            <area class="VerdensEnde" shape="circle" coords="651, 82, 30" href="">
+            <area class="ØsteligePunkt" shape="circle" coords="770, 400, 30" href="">
+            <area class="KongensBastion" shape="circle" coords="476, 673, 30" href="">
+        </map>
     </div>
 </body>
