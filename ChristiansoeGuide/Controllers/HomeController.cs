@@ -19,7 +19,7 @@ namespace ChristiansoeGuide.Controllers
         MySqlConnection connection = new MySqlConnection(connStr);
         private List<string> ferryTimesList = new List<string>();
         private List<string> tourList = new List<string>();
-        
+
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
@@ -59,32 +59,16 @@ namespace ChristiansoeGuide.Controllers
             }
         }
         
-        [HttpGet]
-        public void AddTourToDatabase(string tmpName, int tmpX, int tmpY)
+        private void FetchTourList()
         {
-            connection.Open();
-            string sql = "Insert into Tour (name, x, y) VALUES (@name, @x, @y)";
-            MySqlCommand cmd = new MySqlCommand(sql, connection);
-            
-            cmd.Parameters.AddWithValue("@name",tmpName);
-            cmd.Parameters.AddWithValue("@x",tmpX);
-            cmd.Parameters.AddWithValue("@y",tmpY);
-            Console.WriteLine("tmpname: " + tmpName);
-            cmd.ExecuteNonQuery();
-            cmd.Dispose();
-        }
-        
-        private void FetchTour()
-        {
-            if (ferryTimesList.Count > 0)
+            if (tourList.Count > 0)
             {
-                ferryTimesList.Clear();
+                tourList.Clear();
             }
             
             try
             {
                 connection.Open();
-                
                 string sql = "SELECT * FROM Tour";
                 MySqlCommand command = new MySqlCommand(sql, connection);
                 MySqlDataReader reader = command.ExecuteReader();
@@ -93,6 +77,7 @@ namespace ChristiansoeGuide.Controllers
                 {
                     tourList.Add(reader["name"].ToString());
                 }
+                command.Dispose();
                 connection.Close();
 
             }
@@ -100,6 +85,31 @@ namespace ChristiansoeGuide.Controllers
             {
                 Console.WriteLine("DB-ERROR" + e);
             }
+        }
+        
+        [HttpGet]
+        public void AddTourToDatabase(string tmpName, int tmpX, int tmpY)
+        {
+            connection.Open();
+            var sql = "Insert into Tour (name, x, y) VALUES (@name, @x, @y)";
+            MySqlCommand cmd = new MySqlCommand(sql, connection);
+            
+            cmd.Parameters.AddWithValue("@name",tmpName);
+            cmd.Parameters.AddWithValue("@x",tmpX);
+            cmd.Parameters.AddWithValue("@y", tmpY);
+            cmd.ExecuteNonQuery();
+            cmd.Dispose();
+            connection.Close();
+        }
+
+        public void ClearTour()
+        {
+            connection.Open();
+            var sql = "DELETE FROM Tour";
+            MySqlCommand cmd = new MySqlCommand(sql, connection);
+            cmd.ExecuteNonQuery();
+            cmd.Dispose();
+            connection.Close();
         }
 
         public IActionResult Privacy()
@@ -109,7 +119,7 @@ namespace ChristiansoeGuide.Controllers
         
         public IActionResult TourMaker()
         {
-            FetchTour();
+            FetchTourList();
             return View(tourList);
         }
 
@@ -117,11 +127,6 @@ namespace ChristiansoeGuide.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel {RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier});
-        }
-        
-        public void Test(string printString)
-        {
-            Console.WriteLine(printString);
         }
     }
 }
