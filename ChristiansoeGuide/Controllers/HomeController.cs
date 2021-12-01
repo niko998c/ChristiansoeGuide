@@ -14,8 +14,8 @@ namespace ChristiansoeGuide.Controllers
         private readonly ILogger<HomeController> _logger;
 
         //database connection stuff
-        static String connStr = "server=localhost;user=root;database=ChristiansoeDatabase;port=3306;password=Mysqlroot;";
-        //static String connStr = "server=localhost;user=root;database=ChristiansoeDatabase;port=3306;password=niko998c;"; 
+        //static String connStr = "server=localhost;user=root;database=ChristiansoeDatabase;port=3306;password=Mysqlroot;";
+        static String connStr = "server=localhost;user=root;database=ChristiansoeDatabase;port=3306;password=niko998c;"; 
         MySqlConnection connection = new MySqlConnection(connStr);
         private List<string> ferryTimesList = new List<string>();
         private List<string> tourList = new List<string>();
@@ -72,10 +72,22 @@ namespace ChristiansoeGuide.Controllers
                 string sql = "SELECT * FROM Tour";
                 MySqlCommand command = new MySqlCommand(sql, connection);
                 MySqlDataReader reader = command.ExecuteReader();
-                
+
+                reader.Read();
+                tourList.Add(reader["name"].ToString());
+                var xOld = (int) reader["x"];
+                int yOld = (int) reader["y"];
+                int xNew = 0;
+                int yNew = 0;
+                double distance = 0;
                 while (reader.Read())
                 {
-                    tourList.Add(reader["name"].ToString());
+                    xNew = (int) reader["x"];
+                    yNew = (int) reader["y"];
+                    distance += Math.Sqrt((int) Math.Pow((xOld - xNew), 2) + (int) Math.Pow((yOld - yNew), 2)) / 50;
+                    xOld = xNew;
+                    yOld = yNew;
+                    tourList.Add(reader["name"] + " - time: " + Math.Round(distance, 0));
                 }
                 command.Dispose();
                 connection.Close();
