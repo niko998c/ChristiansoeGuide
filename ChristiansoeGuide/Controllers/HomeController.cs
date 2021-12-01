@@ -14,8 +14,8 @@ namespace ChristiansoeGuide.Controllers
         private readonly ILogger<HomeController> _logger;
 
         //database connection stuff
-        //static String connStr = "server=localhost;user=root;database=ChristiansoeDatabase;port=3306;password=Mysqlroot;";
-        static String connStr = "server=localhost;user=root;database=ChristiansoeDatabase;port=3306;password=niko998c;"; 
+        static String connStr = "server=localhost;user=root;database=ChristiansoeDatabase;port=3306;password=Mysqlroot;";
+        //static String connStr = "server=localhost;user=root;database=ChristiansoeDatabase;port=3306;password=niko998c;"; 
         MySqlConnection connection = new MySqlConnection(connStr);
         private List<string> ferryTimesList = new List<string>();
         private List<string> tourList = new List<string>();
@@ -41,7 +41,6 @@ namespace ChristiansoeGuide.Controllers
             try
             {
                 connection.Open();
-                
                 string sql = "SELECT * FROM FerryTimes";
                 MySqlCommand command = new MySqlCommand(sql, connection);
                 MySqlDataReader reader = command.ExecuteReader();
@@ -87,7 +86,7 @@ namespace ChristiansoeGuide.Controllers
                     distance += Math.Sqrt((int) Math.Pow((xOld - xNew), 2) + (int) Math.Pow((yOld - yNew), 2)) / 50;
                     xOld = xNew;
                     yOld = yNew;
-                    tourList.Add(reader["name"] + " - time: " + Math.Round(distance, 0));
+                    tourList.Add(reader["name"] + " - time: " + Math.Round(distance, 0) + " min.");
                 }
                 command.Dispose();
                 connection.Close();
