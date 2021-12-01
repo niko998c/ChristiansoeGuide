@@ -7,7 +7,6 @@
     $(document).ready(function(){
         $(".Færgen").on("click", function(){
             $.ajax({url: '@Url.Action("AddTourToDatabase")', type: 'GET', data: {tmpName: "Færgen", tmpX: 440, tmpY: 490}});
-            window.location.reload()
             return false;
         });
         $(".LilleTårn").on("click", function(){
@@ -53,32 +52,29 @@
         
         $(".clearTourButton").on("click", function(){
             $.ajax({url: '@Url.Action("ClearTour")', type: 'GET'});
-            
             return false;
         });
-        
     });
 </script>
 
 <body>
-
-<div class="højre-div">
-    <h2>Her er din rute</h2>
-    <table>
-        <tbody>
-        @{
-            foreach (var Data in Model)
-            {
-                <tr>
-                    <td>@Data.ToString() </td>
-                </tr>
+    <div class="højre-div">
+        <h2>Her er din rute</h2>
+        <table>
+            <tbody>
+            @{
+                foreach (var Data in Model)
+                {
+                    <tr>
+                        <td>@Data.ToString() </td>
+                    </tr>
+                }
             }
-        }
-        </tbody>
-    </table>
-    <button type="button" class="clearTourButton">Ryd Tour</button>
-    
-</div>
+            </tbody>
+        </table>
+        <button type="button" class="clearTourButton">Ryd Tour</button>
+    </div>
+
     <div class="venstre-div">
         <h2>Lav din egen tur på øen</h2>
         <p>tryk på de seværdigheder du vil til, resten ordner vi ;)</p>
