@@ -10,7 +10,7 @@
             });
         });
         $(".LilleTårn").on("click", function(){
-            $.ajax({url: '@Url.Action("AddTourToDatabase")', type: 'GET', data: {tmpName: "Lille Tårn", tmpX: 230 , tmpY: 255 },
+            $.ajax({url: '@Url.Action("AddTourToDatabase")', type: 'GET', data: {tmpName: "Lille Tårn", tmpX: 230 , tmpY: 255},
             });
         });
         $(".Fængsel").on("click", function(){
@@ -45,12 +45,18 @@
             $.ajax({url: '@Url.Action("AddTourToDatabase")', type: 'GET', data: {tmpName: "Kongens Bastion", tmpX: 680, tmpY: 962},
             });
         });
+        $(".StoreTårn").on("click", function(){
+            $.ajax({url: '@Url.Action("AddTourToDatabase")', type: 'GET', data: {tmpName: "Store Tårn", tmpX: 369, tmpY: 343},
+            });
+        });
     });
 </script>
+
 <body>
+
 <div class="højre-div">
     <table>
-    <h2>Færge tider</h2>
+    <h2>Her er din rute</h2>
         <tbody>
             @{
                 foreach (var Data in Model)
@@ -60,13 +66,14 @@
                     </tr>
                 }
             }
-            </tbody>
+        </tbody>
     </table>
     
 </div>
     <div class="venstre-div">
-    <h2>Velkommen til Christiansø Turist Guide</h2>
-        <img class="map" src="../image/mapWithPins.png" alt="Kort ikke findet" usemap="#tourmap">
+        <h2>Lav din egen tur på øen</h2>
+        <p>tryk på de seværdigheder du vil til, resten ordner vi ;)</p>
+        <img class="tour-map" src="../image/mapWithPins.png" alt="Kort ikke findet" usemap="#tourmap">
         <map name="tourmap">
             <area class="Færgen" shape="circle" coords="308, 343, 30" href="">
             <area class="LilleTårn" shape="circle" coords="161, 178, 30" href="">
