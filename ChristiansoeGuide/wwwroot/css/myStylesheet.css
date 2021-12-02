@@ -10,7 +10,7 @@
 }
 
 .map {
-    margin-left: 10%;
+    
     width: 70%;
     height: auto;
 }
@@ -27,4 +27,5 @@ tr:nth-child(even) {
 
 table {
     font-size: 20px;
+    align-self: center;
 }

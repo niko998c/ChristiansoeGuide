@@ -5,6 +5,13 @@
 <body>
 
 <div class="højre-div">
+    <div class="next-ferry-div">
+        @{
+            var timeToNextFerry = ViewBag.Message;
+        }
+        <h4>Næste færge går om:</h4>
+        <p>@timeToNextFerry timer</p>
+    </div>
     <table>
         <h2>Færge tider</h2>
         <tbody>
