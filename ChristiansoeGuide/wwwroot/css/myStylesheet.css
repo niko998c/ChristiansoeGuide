@@ -14,6 +14,11 @@
     height: auto;
 }
 
+.tour-map {
+    width: 100%;
+    height: auto;    
+}
+
 tr:nth-child(even) {
     background: lightgrey;
 }

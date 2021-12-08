@@ -10,8 +10,8 @@ namespace ChristiansoeGuide.Services
     public class Service
     {
         //database connection stuff
-        static string connStr = "server=localhost;user=root;database=ChristiansoeDatabase;port=3306;password=1;";
-        //static string connStr = "server=localhost;user=root;database=ChristiansoeDatabase;port=3306;password=niko998c;"; 
+        // static string connStr = "server=localhost;user=root;database=ChristiansoeDatabase;port=3306;password=1;";
+        static string connStr = "server=localhost;user=root;database=ChristiansoeDatabase;port=3306;password=niko998c;";
         MySqlConnection connection = new MySqlConnection(connStr);
         
         public List<string> ferryTimesList = new List<string>();
@@ -50,10 +50,7 @@ namespace ChristiansoeGuide.Services
 
         public void FetchFerryTimes()
         {
-            if (ferryTimesList.Count > 0)
-            {
-                ferryTimesList.Clear();
-            }
+            ferryTimesList.Clear();
             
             try
             {
@@ -77,18 +74,15 @@ namespace ChristiansoeGuide.Services
         
         public void FetchTourList()
         {
-            if (tourList.Count > 0)
-            {
-                tourList.Clear();
-            }
+            tourList.Clear();
 
             try
             {
                 connection.Open();
                 string sql = "SELECT * FROM Tour";
-                MySqlCommand command = new MySqlCommand(sql, connection);
+                var command = new MySqlCommand(sql, connection);
                 MySqlDataReader reader = command.ExecuteReader();
-
+                
                 reader.Read();
                 tourList.Add(reader["name"].ToString());
                 var xOld = (int) reader["x"];
@@ -139,7 +133,7 @@ namespace ChristiansoeGuide.Services
             finally
             {
                 connection.Close();
-                FetchTourList();
+                // FetchTourList();
             }
         }
 
