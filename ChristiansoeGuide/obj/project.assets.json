@@ -5372,19 +5372,19 @@
     ]
   },
   "packageFolders": {
-    "/Users/adamkanstruphviid/.nuget/packages/": {}
+    "C:\\Users\\Nikolaj\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/adamkanstruphviid/OneDrive/KEA/C#/ChristiansoeGuide/ChristiansoeGuide/ChristiansoeGuide.csproj",
+      "projectUniqueName": "C:\\Niko\\SynologyDrive\\Labtop\\semester4\\Rider\\ChristiansoeGuide2\\ChristiansoeGuide\\ChristiansoeGuide.csproj",
       "projectName": "ChristiansoeGuide",
-      "projectPath": "/Users/adamkanstruphviid/OneDrive/KEA/C#/ChristiansoeGuide/ChristiansoeGuide/ChristiansoeGuide.csproj",
-      "packagesPath": "/Users/adamkanstruphviid/.nuget/packages/",
-      "outputPath": "/Users/adamkanstruphviid/OneDrive/KEA/C#/ChristiansoeGuide/ChristiansoeGuide/obj/",
+      "projectPath": "C:\\Niko\\SynologyDrive\\Labtop\\semester4\\Rider\\ChristiansoeGuide2\\ChristiansoeGuide\\ChristiansoeGuide.csproj",
+      "packagesPath": "C:\\Users\\Nikolaj\\.nuget\\packages\\",
+      "outputPath": "C:\\Niko\\SynologyDrive\\Labtop\\semester4\\Rider\\ChristiansoeGuide2\\ChristiansoeGuide\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/adamkanstruphviid/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\Nikolaj\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
@@ -5439,7 +5439,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/Users/adamkanstruphviid/.dotnet/sdk/5.0.402/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
       }
     }
   }
