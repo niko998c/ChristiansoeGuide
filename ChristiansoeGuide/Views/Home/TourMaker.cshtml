@@ -6,55 +6,43 @@
 <script>
     $(document).ready(function(){
         $(".Færgen").on("click", function(){
-            $.ajax({url: '@Url.Action("AddTourToDatabase")', type: 'GET', data: {tmpName: "Færgen", tmpX: 440, tmpY: 490}});
-            return false;
+            $.ajax({url: '@Url.Action("AddTourToDatabase")', type: 'GET', data: {tmpName: "Færgen", tmpX: 308, tmpY: 343}});
         });
         $(".LilleTårn").on("click", function(){
-            $.ajax({url: '@Url.Action("AddTourToDatabase")', type: 'GET', data: {tmpName: "Lille Tårn", tmpX: 230 , tmpY: 255}});
-            return false;
+            $.ajax({url: '@Url.Action("AddTourToDatabase")', type: 'GET', data: {tmpName: "Lille Tårn", tmpX: 161 , tmpY: 178}});
         });
         $(".Fængsel").on("click", function(){
-            $.ajax({url: '@Url.Action("AddTourToDatabase")', type: 'GET', data: {tmpName: "Fængsel", tmpX: 312, tmpY: 615}});
-            return false;
+            $.ajax({url: '@Url.Action("AddTourToDatabase")', type: 'GET', data: {tmpName: "Fængsel", tmpX: 218, tmpY: 430}});
         });
         $(".HesteHytten").on("click", function(){
-            $.ajax({url: '@Url.Action("AddTourToDatabase")', type: 'GET', data: {tmpName: "Heste Hytten", tmpX: 582, tmpY: 224}});
-            return false;
+            $.ajax({url: '@Url.Action("AddTourToDatabase")', type: 'GET', data: {tmpName: "Heste Hytten", tmpX: 407, tmpY: 156}});
         });
         $(".GlasShop").on("click", function(){
-            $.ajax({url: '@Url.Action("AddTourToDatabase")', type: 'GET', data: {tmpName: "Glas Shop", tmpX: 501, tmpY: 654}});
-            return false;
+            $.ajax({url: '@Url.Action("AddTourToDatabase")', type: 'GET', data: {tmpName: "Glas Shop", tmpX: 350, tmpY: 457}});
         });
         $(".HertugindensBastion").on("click", function(){
-            $.ajax({url: '@Url.Action("AddTourToDatabase")', type: 'GET', data: {tmpName: "Hertugindens Bastion", tmpX: 792, tmpY: 300}});
-            return false;
+            $.ajax({url: '@Url.Action("AddTourToDatabase")', type: 'GET', data: {tmpName: "Hertugindens Bastion", tmpX: 554, tmpY: 210}});
         });
         $(".StoreBrønd").on("click", function(){
-            $.ajax({url: '@Url.Action("AddTourToDatabase")', type: 'GET', data: {tmpName: "Store Brønd", tmpX: 792, tmpY: 714}});
-            return false;
+            $.ajax({url: '@Url.Action("AddTourToDatabase")', type: 'GET', data: {tmpName: "Store Brønd", tmpX: 554, tmpY: 499}});
         });
         $(".VerdensEnde").on("click", function(){
-            $.ajax({url: '@Url.Action("AddTourToDatabase")', type: 'GET', data: {tmpName: "Verdens Ende", tmpX: 930, tmpY: 118}});
-            return false;
+            $.ajax({url: '@Url.Action("AddTourToDatabase")', type: 'GET', data: {tmpName: "Verdens Ende", tmpX: 651, tmpY: 82}});
         });
         $(".ØsteligePunkt").on("click", function(){
-            $.ajax({url: '@Url.Action("AddTourToDatabase")', type: 'GET', data: {tmpName: "Danmarks Østelige Punkt", tmpX: 1113, tmpY: 572}});
-            return false;
+            $.ajax({url: '@Url.Action("AddTourToDatabase")', type: 'GET', data: {tmpName: "Danmarks Østelige Punkt", tmpX: 770, tmpY: 400}});
         });
         $(".KongensBastion").on("click", function(){
-            $.ajax({url: '@Url.Action("AddTourToDatabase")', type: 'GET', data: {tmpName: "Kongens Bastion", tmpX: 680, tmpY: 962}});
-            return false;
+            $.ajax({url: '@Url.Action("AddTourToDatabase")', type: 'GET', data: {tmpName: "Kongens Bastion", tmpX: 476, tmpY: 673}});
         });
         $(".StoreTårn").on("click", function(){
             $.ajax({url: '@Url.Action("AddTourToDatabase")', type: 'GET', data: {tmpName: "Store Tårn", tmpX: 369, tmpY: 343}});
-            return false;
         });
         
         $(".clearTourButton").on("click", function(){
-            $.ajax({url: '@Url.Action("ClearTour")', type: 'GET'});
-            return false;
+            $.ajax({url: '@Url.Action("ClearTour")', type: 'POST'});
+            location.reload();
         });
-        
     });
 </script>
 
@@ -73,18 +61,21 @@
             }
             </tbody>
         </table>
-        <button type="button" class="clearTourButton">Ryd Tour</button>
+        <button type="button" class="clearTourButton">Ryd Tur</button>
     </div>
 
     <div class="venstre-div">
         <h2>Lav din egen tur på øen</h2>
-        <p>tryk på de seværdigheder du vil til, resten ordner vi ;)</p>
+        <p>
+            Tryk på de seværdigheder du vil til, resten ordner vi!<br>
+            Vi anbefaler en tur på 20 minutter, hvor det sidste punkt er færgen
+        </p>
         <img class="tour-map" src="../image/mapWithPins.png" alt="Kort ikke findet" usemap="#tourmap">
         <map name="tourmap">
-            <area class="Færgen" shape="circle" coords="308, 343, 30" href="#">
-            <area class="LilleTårn" shape="circle" coords="161, 178, 30" href="#">
-            <area class="Fængsel" shape="circle" coords="218, 430, 30" href="#">
-            <area class="HesteHytten" shape="circle" coords="407, 156, 30" href="#">
+            <area class="Færgen" shape="circle" coords="308, 343, 30" href="">
+            <area class="LilleTårn" shape="circle" coords="161, 178, 30" href="">
+            <area class="Fængsel" shape="circle" coords="218, 430, 30" href="">
+            <area class="HesteHytten" shape="circle" coords="407, 156, 30" href="">
             <area class="StoreTårn" shape="circle" coords="369, 343, 30" href="">
             <area class="GlasShop" shape="circle" coords="350, 457, 30" href="">
             <area class="HertugindensBastion" shape="circle" coords="554, 210, 30" href="">
