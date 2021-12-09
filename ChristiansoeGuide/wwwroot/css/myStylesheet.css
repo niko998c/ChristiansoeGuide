@@ -2,10 +2,6 @@
     width: 50px;
 }
 
-table, th, td {
-    border: 1px solid black;
-}
-
 .højre-div {
     float: right;
     width: 20%;
@@ -27,11 +23,8 @@ table, th, td {
     height: auto;    
 }
 
-tr:nth-child(even) {
-    background: lightgrey;
-}
-
 table {
     font-size: 20px;
     align-self: center;
 }
+

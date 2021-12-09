@@ -96,7 +96,7 @@ namespace ChristiansoeGuide.Services
                     distance += Math.Sqrt((int) Math.Pow((xOld - xNew), 2) + (int) Math.Pow((yOld - yNew), 2)) / 50;
                     xOld = xNew;
                     yOld = yNew;
-                    tourList.Add(reader["name"] + " - time: " + Math.Round(distance, 0) + " min.");
+                    tourList.Add(reader["name"] + " - tid: " + Math.Round(distance, 0) + " min.");
                 }
                 command.Dispose();
 

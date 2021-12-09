@@ -7,10 +7,14 @@
         @{
             var timeToNextFerry = ViewBag.Message;
         }
-        <h4>Næste færge går om:</h4>
-        <p>@timeToNextFerry timer</p>
+        <h2>Næste færge går om</h2>
+        <table class="table table-striped">
+            <tbody>
+                <td>@timeToNextFerry timer</td>
+            </tbody>
+        </table>
     </div>
-    <table>
+    <table class="table table-striped">
         <h2>Færge tider</h2>
         <tbody>
         @{

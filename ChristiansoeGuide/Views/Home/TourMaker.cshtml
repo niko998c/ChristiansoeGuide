@@ -43,13 +43,13 @@
             $.ajax({url: '@Url.Action("ClearTour")', type: 'POST'});
             location.reload();
         });
-    });
+    }); 
 </script>
 
 <body>
     <div class="højre-div">
         <h2>Her er din rute</h2>
-        <table>
+        <table class="table table-striped">
             <tbody>
             @{
                 foreach (string Data in Model)
@@ -61,7 +61,7 @@
             }
             </tbody>
         </table>
-        <button type="button" class="clearTourButton">Ryd Tur</button>
+        <button type="button" class="btn btn-success clearTourButton">Ryd Tur</button>
     </div>
 
     <div class="venstre-div">
@@ -72,17 +72,17 @@
         </p>
         <img class="tour-map" src="../image/mapWithPins.png" alt="Kort ikke findet" usemap="#tourmap">
         <map name="tourmap">
-            <area class="Færgen" shape="circle" coords="308, 343, 30" href="">
-            <area class="LilleTårn" shape="circle" coords="161, 178, 30" href="">
-            <area class="Fængsel" shape="circle" coords="218, 430, 30" href="">
-            <area class="HesteHytten" shape="circle" coords="407, 156, 30" href="">
-            <area class="StoreTårn" shape="circle" coords="369, 343, 30" href="">
-            <area class="GlasShop" shape="circle" coords="350, 457, 30" href="">
-            <area class="HertugindensBastion" shape="circle" coords="554, 210, 30" href="">
-            <area class="StoreBrønd" shape="circle" coords="554, 499, 30" href="">
-            <area class="VerdensEnde" shape="circle" coords="651, 82, 30" href="">
-            <area class="ØsteligePunkt" shape="circle" coords="770, 400, 30" href="">
-            <area class="KongensBastion" shape="circle" coords="476, 673, 30" href="">
+            <area class="Færgen" shape="circle" coords="308, 343, 30" href="" data-toggle="tooltip" title="Færgen">
+            <area class="LilleTårn" shape="circle" coords="161, 178, 30" href="" data-toggle="tooltip" title="Lille Tårn">
+            <area class="Fængsel" shape="circle" coords="218, 430, 30" href="" data-toggle="tooltip" title="Fængsel">
+            <area class="HesteHytten" shape="circle" coords="407, 156, 30" href="" data-toggle="tooltip" title="Heste Hytten">
+            <area class="StoreTårn" shape="circle" coords="369, 343, 30" href="" data-toggle="tooltip" title="Store Tårn">
+            <area class="GlasShop" shape="circle" coords="350, 457, 30" href="" data-toggle="tooltip" title="Glas Shop">
+            <area class="HertugindensBastion" shape="circle" coords="554, 210, 30" href="" data-toggle="tooltip" title="Hertugindens Bastion">
+            <area class="StoreBrønd" shape="circle" coords="554, 499, 30" href="" data-toggle="tooltip" title="Store Brønd">
+            <area class="VerdensEnde" shape="circle" coords="651, 82, 30" href="" data-toggle="tooltip" title="Verdenens Ende">
+            <area class="ØsteligePunkt" shape="circle" coords="770, 400, 30" href="" data-toggle="tooltip" title="Østelige Punkt">
+            <area class="KongensBastion" shape="circle" coords="476, 673, 30" href="" data-toggle="tooltip" title="Kongens Bastion">
         </map>
     </div>
 </body>
