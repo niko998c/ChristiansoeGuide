@@ -3,25 +3,24 @@ using System.Collections.Generic;
 using System.Globalization;
 using Microsoft.AspNetCore.Mvc;
 using MySql.Data.MySqlClient;
-using System.Threading;
 
 namespace ChristiansoeGuide.Services
 {
     public class Service
     {
         //database connection stuff
-        // static string connStr = "server=localhost;user=root;database=ChristiansoeDatabase;port=3306;password=1;";
-        static string connStr = "server=localhost;user=root;database=ChristiansoeDatabase;port=3306;password=niko998c;";
+        static string connStr = "server=localhost;user=root;database=ChristiansoeDatabase;port=3306;password=1;";
+        //static string connStr = "server=localhost;user=root;database=ChristiansoeDatabase;port=3306;password=niko998c;";
         MySqlConnection connection = new MySqlConnection(connStr);
         
         public List<string> ferryTimesList = new List<string>();
         public List<string> tourList = new List<string>();
         public string timeToNextFerry;
         
-        public void DateTimeTest()
+        public void DateTime()
         {
-            string stringTimeNow = DateTime.Now.ToString("HH:mm:ss");
-            DateTime timeNow = DateTime.ParseExact(stringTimeNow, "HH:mm:ss", CultureInfo.InvariantCulture);
+            string stringTimeNow = System.DateTime.Now.ToString("HH:mm:ss");
+            DateTime timeNow = System.DateTime.ParseExact(stringTimeNow, "HH:mm:ss", CultureInfo.InvariantCulture);
 
             try
             {
@@ -32,7 +31,7 @@ namespace ChristiansoeGuide.Services
                 reader.Read();
                 
                 var nextFerry = reader["FerryDateTime"].ToString();
-                DateTime dateTime1 = DateTime.ParseExact(nextFerry, "HH:mm:ss", CultureInfo.InvariantCulture);
+                DateTime dateTime1 = System.DateTime.ParseExact(nextFerry, "HH:mm:ss", CultureInfo.InvariantCulture);
                 timeToNextFerry = (dateTime1 - timeNow).ToString().Substring(0, 5);
             }
             

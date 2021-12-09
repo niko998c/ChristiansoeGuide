@@ -10,4 +10,8 @@
       <PackageReference Include="System.Data.SqlClient" Version="4.8.3" />
     </ItemGroup>
 
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="wwwroot\js\site.js" />
+    </ItemGroup>
+
 </Project>

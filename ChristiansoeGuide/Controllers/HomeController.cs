@@ -1,14 +1,6 @@
-﻿using System;
-using System.Threading;
-using System.Globalization;
-using System.Collections;
-using System.Collections.Generic;
-using System.Diagnostics;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using ChristiansoeGuide.Models;
 using ChristiansoeGuide.Services;
-using MySql.Data.MySqlClient;
 
 namespace ChristiansoeGuide.Controllers
 {
@@ -25,18 +17,13 @@ namespace ChristiansoeGuide.Controllers
         
         public IActionResult Index()
         {
-            service.DateTimeTest();
+            service.DateTime();
             service.FetchFerryTimes();
 
             ViewBag.Message = service.timeToNextFerry;
             return View(service.ferryTimesList);
         }
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-        
         public IActionResult TourMaker()
         {
             service.FetchTourList();
@@ -51,12 +38,6 @@ namespace ChristiansoeGuide.Controllers
         public void ClearTour()
         {
             service.ClearTour();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel {RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier});
         }
     }
 }

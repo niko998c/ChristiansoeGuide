@@ -19,15 +19,8 @@ using ChristiansoeGuide;
 #line default
 #line hidden
 #nullable disable
-#nullable restore
-#line 2 "C:\Users\hviid\RiderProjects\ChristiansoeGuide\ChristiansoeGuide\Views\_ViewImports.cshtml"
-using ChristiansoeGuide.Models;
-
-#line default
-#line hidden
-#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"6cf9d561b984634154786544b1ac1c636b1da60a", @"/Views/Home/TourMaker.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"ff90cfc4654ca3236bca0105c902954465f34c2d", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"5c1223c3dadc0c4f80eea8b3fce7dc9a494a5dcb", @"/Views/_ViewImports.cshtml")]
     public class Views_Home_TourMaker : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         #line hidden
@@ -159,7 +152,7 @@ using ChristiansoeGuide.Models;
 #line hidden
 #nullable disable
             WriteLiteral("\', type: \'POST\'});\r\n            location.reload();\r\n        });\r\n    });\r\n</script>\r\n\r\n");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6cf9d561b984634154786544b1ac1c636b1da60a8872", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6cf9d561b984634154786544b1ac1c636b1da60a8668", async() => {
                 WriteLiteral("\r\n    <div class=\"højre-div\">\r\n        <h2>Her er din rute</h2>\r\n        <table>\r\n            <tbody>\r\n");
 #nullable restore
 #line 54 "C:\Users\hviid\RiderProjects\ChristiansoeGuide\ChristiansoeGuide\Views\Home\TourMaker.cshtml"
