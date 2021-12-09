@@ -3,25 +3,24 @@ using System.Collections.Generic;
 using System.Globalization;
 using Microsoft.AspNetCore.Mvc;
 using MySql.Data.MySqlClient;
-using System.Threading;
 
 namespace ChristiansoeGuide.Services
 {
     public class Service
     {
         //database connection stuff
-        // static string connStr = "server=localhost;user=root;database=ChristiansoeDatabase;port=3306;password=1;";
-        static string connStr = "server=localhost;user=root;database=ChristiansoeDatabase;port=3306;password=niko998c;";
+        static string connStr = "server=localhost;user=root;database=ChristiansoeDatabase;port=3306;password=1;";
+        //static string connStr = "server=localhost;user=root;database=ChristiansoeDatabase;port=3306;password=niko998c;";
         MySqlConnection connection = new MySqlConnection(connStr);
         
         public List<string> ferryTimesList = new List<string>();
         public List<string> tourList = new List<string>();
         public string timeToNextFerry;
         
-        public void DateTimeTest()
+        public void DateTime()
         {
-            string stringTimeNow = DateTime.Now.ToString("HH:mm:ss");
-            DateTime timeNow = DateTime.ParseExact(stringTimeNow, "HH:mm:ss", CultureInfo.InvariantCulture);
+            string stringTimeNow = System.DateTime.Now.ToString("HH:mm:ss");
+            DateTime timeNow = System.DateTime.ParseExact(stringTimeNow, "HH:mm:ss", CultureInfo.InvariantCulture);
 
             try
             {
@@ -31,8 +30,8 @@ namespace ChristiansoeGuide.Services
                 MySqlDataReader reader = command.ExecuteReader();
                 reader.Read();
                 
-                var nextFerry = reader["FerryDateTime"].ToString();
-                DateTime dateTime1 = DateTime.ParseExact(nextFerry, "HH:mm:ss", CultureInfo.InvariantCulture);
+                string nextFerry = reader["FerryDateTime"].ToString();
+                DateTime dateTime1 = System.DateTime.ParseExact(nextFerry, "HH:mm:ss", CultureInfo.InvariantCulture);
                 timeToNextFerry = (dateTime1 - timeNow).ToString().Substring(0, 5);
             }
             
@@ -80,15 +79,15 @@ namespace ChristiansoeGuide.Services
             {
                 connection.Open();
                 string sql = "SELECT * FROM Tour";
-                var command = new MySqlCommand(sql, connection);
+                MySqlCommand command = new MySqlCommand(sql, connection);
                 MySqlDataReader reader = command.ExecuteReader();
                 
                 reader.Read();
                 tourList.Add(reader["name"].ToString());
-                var xOld = (int) reader["x"];
-                var yOld = (int) reader["y"];
-                var xNew = 0;
-                var yNew = 0;
+                int xOld = (int) reader["x"];
+                int yOld = (int) reader["y"];
+                int xNew = 0;
+                int yNew = 0;
                 double distance = 0;
                 while (reader.Read())
                 {
@@ -117,7 +116,7 @@ namespace ChristiansoeGuide.Services
         {
             try {
                 connection.Open();
-                var sql = "Insert into Tour (name, x, y) VALUES (@name, @x, @y)";
+                string sql = "Insert into Tour (name, x, y) VALUES (@name, @x, @y)";
                 MySqlCommand cmd = new MySqlCommand(sql, connection);
                 
                 cmd.Parameters.AddWithValue("@name",tmpName);
@@ -142,7 +141,7 @@ namespace ChristiansoeGuide.Services
             try
             {
                 connection.Open();
-                var sql = "DELETE FROM Tour";
+                string sql = "DELETE FROM Tour";
                 MySqlCommand cmd = new MySqlCommand(sql, connection);
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();

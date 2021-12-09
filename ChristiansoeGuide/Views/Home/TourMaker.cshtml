@@ -52,10 +52,10 @@
         <table>
             <tbody>
             @{
-                foreach (var Data in Model)
+                foreach (string Data in Model)
                 {
                     <tr>
-                        <td>@Data.ToString() </td>
+                        <td>@Data </td>
                     </tr>
                 }
             }
